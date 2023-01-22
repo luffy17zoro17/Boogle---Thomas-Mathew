@@ -70,16 +70,16 @@ const Navbar = () => {
           <div className="relative flex items-center lg:left-[-13rem] 
             xl:left-[-20vw]">   
            <InputProp inPlaceholder={"one piece"} inclassN={`relative 
-            rounded-full py-2 px-4 border outline-none w-[30vw]
+            rounded-full py-2 pl-4 border outline-none w-[30vw]
             border-4 border-green-300 hover:border-purple-500
-             shadow hover:shadow-md md:px-5 xl:w-[37vw] xl:left-[2vw]`}/> 
-          <div className="absolute flex right-2 gap-[0.8vw]
-            px-3"> 
-           <IconProp icon={<CancelIcon className="hidden md:flex cursor-pointer"/>}/>
+             shadow hover:shadow-md md:pl-5 xl:w-[37vw] xl:left-[2vw]`}/> 
+          <div className="absolute flex right-[1rem] gap-[0.8vw]
+            pl-3 xl:right-[-0.5rem]"> 
+           <IconProp icoclassN={`hidden md:flex cursor-pointer`} icon={<CancelIcon className=""/>}/>
              <div className="border-[0.1rem] border-black hidden md:flex"/>
-           <IconProp icon={<MicNoneIcon className="text-red-500 hidden lg:flex cursor-pointer"/>}/>
-           <IconProp icon={<PhotoCameraIcon className="text-yellow-500 hidden lg:flex cursor-pointer"/>}/>
-           <IconProp icon={<SearchIcon className="text-blue-400 cursor-pointer hover:text-purple-600"/>}/>
+           <IconProp icoclassN={`text-red-500 hidden lg:flex cursor-pointer`} icon={<MicNoneIcon/>}/>
+           <IconProp icoclassN={`text-yellow-500 hidden lg:flex cursor-pointer`} icon={<PhotoCameraIcon/>}/>
+           <IconProp icoclassN={`text-blue-400 cursor-pointer hover:text-purple-600`} icon={<SearchIcon/>}/>
           </div> 
           </div>
           </div>
