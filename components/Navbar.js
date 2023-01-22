@@ -76,7 +76,7 @@ const Navbar = () => {
           <div className="absolute flex right-[1rem] gap-[0.8vw]
             pl-3 xl:right-[-0.5rem]"> 
            <IconProp icoclassN={`hidden md:flex cursor-pointer`} icon={<CancelIcon className=""/>}/>
-             <div className="border-[0.1rem] border-black hidden md:flex"/>
+             <div className="border-l-[0.12rem] border-black hidden md:flex"/>
            <IconProp icoclassN={`text-red-500 hidden lg:flex cursor-pointer`} icon={<MicNoneIcon/>}/>
            <IconProp icoclassN={`text-yellow-500 hidden lg:flex cursor-pointer`} icon={<PhotoCameraIcon/>}/>
            <IconProp icoclassN={`text-blue-400 cursor-pointer hover:text-purple-600`} icon={<SearchIcon/>}/>
