@@ -107,8 +107,8 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-[1vw] mt-2 absolute right-4">
-          <IconProp icon={<SettingsApplicationsIcon className="hidden md:flex cursor-pointer"/>}/>
-          <IconProp icon={<AppsIcon className="hidden md:flex cursor-pointer"/>}/>
+          <IconProp icoclassN={`hidden md:flex cursor-pointer`} icon={<SettingsApplicationsIcon/>}/>
+          <IconProp icoclassN={`hidden md:flex cursor-pointer`} icon={<AppsIcon/>}/>
           <div className="bg-blue-500 text-white rounded-l-xl
            px-2 py-1 cursor-pointer shadow shadow-gray-500 hover:bg-purple-500">Sign in</div>
         </div>
