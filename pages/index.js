@@ -2,9 +2,7 @@
 import Navbar from '../components/Navbar';
 import Head from 'next/head'
 import InitialPage from "../components/InitialPage/index"
-import SearchResultSites from '../components/SearchResultSites';
-import RelatedSearch from '../components/RelatedSearch';
-import BooglePagination from '../components/BooglePagination';
+
 
 
 export default function Home() {
