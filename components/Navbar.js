@@ -14,6 +14,8 @@ import NewspaperIcon from '@mui/icons-material/Newspaper';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { useDispatch, useSelector } from "react-redux";
+import { selectColorMode, toggleColor } from "../reducers/colorMode/colorModeSlice";
 
 
 
@@ -55,14 +57,32 @@ const navbItems = [
 
 
 const Navbar = () => {
+
+    const ColorTheme = useSelector(selectColorMode);
+
+    const dispatch = useDispatch();
+
     return (
-      <div className="flex justify-between pl-[6vw] pr-[3vw]
+      <div className={`${ColorTheme=== false ? `flex justify-between pl-[6vw] pr-[3vw]
          py-3 h-[7.6rem] shadow shadow-black fixed top-0 w-full
-         bg-white z-10">
+         bg-white z-10` : `flex justify-between pl-[6vw] pr-[3vw]
+         py-3 h-[7.6rem] shadow shadow-black fixed top-0 w-full
+         bg-white z-10 
+         bg-gradient-to-r from-black via-purple-500 to-gray-700`}`}>
         <div className="flex gap-[2vw]">    
-        <TextProp title={"Boogle"} titleclassN={`pt-2 z-20 text-2xl lg:ml-[-2rem] cursor-pointer
+        <TextProp
+          tonClick={()=>dispatch(toggleColor(false))}
+          title={"Boogle"} details={`${ColorTheme ===false ? `Switch to Dark Mode` : `Switch to Light Mode`}`}
+           detailsclassN={`cursor-pointer text-sm absolute ml-[-3vw] pl-1 pt-[3rem] rounded-md
+           w-[9rem] font-light italic animate-pulse hover:animate-none hover:shadow-sm
+            hover:shadow-cyan-400`}
+
+          tdivclassN={`flex flex-col relative`} 
+
+          titleclassN={`pt-2 z-20 text-2xl lg:ml-[-2rem] cursor-pointer
           border-t-0 border-b-[0.2rem] rounded-full shadow-sm shadow-black
-           border-x border-yellow-500 text-cyan-400 px-1 hover:shadow-purple-600`}/>     
+           border-x border-yellow-500 text-cyan-400 px-1 hover:shadow-purple-600`}/>   
+           
         <div className="flex flex-col items-center gap-[2vw]">
 
           <div className="w-full flex absolute left-0 justify-center
@@ -91,17 +111,22 @@ const Navbar = () => {
           <div className="flex gap-[1.7vw] sm:gap-[2vw] md:gap-[3vw]
            lg:gap-[1.5rem]">
           {navbItems.map((item)=>(  
-          <div key={item.id} className={`hover:text-blue-500 cursor-pointer
+          <div key={item.id} className={ColorTheme=== false ? `hover:text-blue-500 cursor-pointer
             flex items-center ${item.id===1 ? 
-          `border-b-4 text-blue-600 border-blue-600 pb-2` : `mb-3`}`}>  
+          `border-b-4 text-blue-600 border-blue-600 pb-2` : `mb-3`}`
+           : `hover:text-yellow-200 cursor-pointer
+           flex items-center ${item.id===1 ? 
+         `border-b-4 text-yellow-200 border-yellow-200 pb-2` : `mb-3`}`}>  
           <IconProp icon={item.icon} icoclassN="scale-[0.7]"/>
           <TextProp title={item.title} />
           </div>
           ))}
           </div>
 
-           <TextProp title={"Tools"} titleclassN={`mb-3 hidden md:flex cursor-pointer
-              hover:text-blue-500`}/>
+           <TextProp title={"Tools"} titleclassN={ColorTheme === false ? `mb-3 hidden md:flex cursor-pointer
+              hover:text-blue-500` : `
+              mb-3 hidden md:flex cursor-pointer
+              hover:text-yellow-200`}/>
           </div>
         </div>
         </div>

@@ -1,6 +1,8 @@
 import IconProp from "./props/IconProp";
 import TextProp from "./props/TextProp";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import { useSelector } from "react-redux";
+import { selectColorMode } from "../reducers/colorMode/colorModeSlice";
 
 
 const BoogleLetters = [
@@ -81,9 +83,14 @@ const BoogleLetters = [
 
 
 const BooglePagination = () => {
+    const ColorTheme = useSelector(selectColorMode);
+
     return (
-      <div className="pt-5 pb-11 flex justify-center lg:absolute lg:w-full
-         lg:left-0">
+      <div className={ColorTheme===false ? `pt-5 pb-11 flex justify-center lg:absolute lg:w-full
+         lg:left-0` : `bg-gradient-to-r from-gray-800 via-gray-500 to-gray-800
+         text-purple-200
+         pt-5 pb-11 flex justify-center lg:absolute lg:w-full
+         lg:left-0`}>
         <div className="flex items-center">
             <div className="flex">
             {BoogleLetters.map((letr)=>(

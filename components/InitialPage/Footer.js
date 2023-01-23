@@ -1,14 +1,21 @@
 import TextProp from "../props/TextProp";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { selectColorMode } from "../../reducers/colorMode/colorModeSlice";
 
 
 const Footer = () => {
+    const ColorTheme = useSelector(selectColorMode);
+
     return (
-     <div className="flex justify-center relative lg:absolute lg:w-full lg:left-0
-       lg:mt-[9rem]">
+     <div className={`flex justify-center relative lg:absolute lg:w-full lg:left-0
+       lg:mt-[9rem]`}>
       
-      <div className="absolute w-full
-      border-4 flex justify-center bg-gray-200 py-4">
+      <div className={ColorTheme === false ? `absolute w-full
+      border-4 flex justify-center bg-gray-200 py-4` : 
+      `absolute w-full
+      flex justify-center bg-gray-200 py-4
+      bg-gradient-to-t from-black via-gray-900 to-gray-800`}>
       <div className="">
          <TextProp 
            title={`India`}

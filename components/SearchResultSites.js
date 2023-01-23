@@ -4,6 +4,8 @@ import PeopleAlsoSearch from './RelatedSearch';
 import IconProp from './props/IconProp';
 import ImageProp from './props/ImageProp';
 import TextProp from './props/TextProp';
+import { useSelector } from 'react-redux';
+import { selectColorMode } from '../reducers/colorMode/colorModeSlice';
 
 
 
@@ -132,6 +134,8 @@ const SiteList = [
 
 
 const SearchResultSites = () => {
+
+  const ColorTheme = useSelector(selectColorMode); 
     return (
      <div className="flex justify-center w-full"> 
       <div className='w-[90vw] lg:w-[35rem] xl:w-[50rem]'>
@@ -147,8 +151,9 @@ const SearchResultSites = () => {
 
               <TextProp 
                  title={site.title} 
-                 titleclassN={`text-xl pb-[0.6rem] text-blue-800 
-                  cursor-pointer hover:underline`}
+                 titleclassN={`${ColorTheme === false ? `text-xl pb-[0.6rem] text-blue-800 
+                  cursor-pointer hover:underline` : `text-xl pb-[0.6rem] text-green-200 
+                  cursor-pointer hover:underline`}`}
                 
             
                  

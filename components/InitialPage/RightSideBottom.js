@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+import { selectColorMode } from "../../reducers/colorMode/colorModeSlice";
 import ImageProp from "../props/ImageProp";
 import TextProp from "../props/TextProp";
 
@@ -128,10 +130,16 @@ const AlsoSearchList =[
 
 
 const RightSideBottom =() => {
+
+    const ColorTheme = useSelector(selectColorMode);
+
     return (
       <div>
         <TextProp title={`Main characters`} titleclassN={`text-lg`} 
-         detailsclassN={`text-sm pt-2 text-green-700 pl-[5rem] cursor-pointer hover:underline`}
+         detailsclassN={ColorTheme===false ? `text-sm pt-2 text-green-700
+         cursor-pointer pl-[5rem] hover:underline` : 
+         `text-sm pt-2 text-green-400
+         cursor-pointer pl-[5rem] hover:underline`} 
         details={`View 35+ more`} tdivclassN={`flex justify-between pb-3 pt-5`}/>
         <div className="flex justify-center mb-[1rem]">
            {CharacterList.map((charac)=>(
@@ -145,7 +153,9 @@ const RightSideBottom =() => {
                  />
                  <TextProp
                     title={charac.title}
-                    titleclassN={`cursor-pointer text-blue-800 hover:underline`}
+                    titleclassN={`${ColorTheme === false ? 
+                         `cursor-pointer text-blue-800 hover:underline` : 
+                         `cursor-pointer text-green-200 hover:underline`}`}
                  />
                </div> 
            ))}
@@ -153,8 +163,10 @@ const RightSideBottom =() => {
            
 
         <TextProp title={`Books`}  titleclassN={`text-lg`} 
-         detailsclassN={`text-sm pt-2 text-green-700 pl-[10rem] 
-          cursor-pointer hover:underline`} details={`View 25+ more`} 
+         detailsclassN={ColorTheme===false ? `text-sm pt-2 text-green-700
+         cursor-pointer pl-[10rem] hover:underline` : 
+         `text-sm pt-2 text-green-400
+         cursor-pointer pl-[10rem] hover:underline`}  details={`View 25+ more`} 
          tdivclassN={`flex justify-between pt-5 pb-3`}/>
         <div className="flex justify-center mb-[1rem]">
         {BooksList.map((book)=>(
@@ -168,9 +180,11 @@ const RightSideBottom =() => {
                 />
                 <TextProp
                     title={book.title}
-                    titleclassN={`cursor-pointer text-blue-800 hover:underline`}
+                    titleclassN={`${ColorTheme === false ? 
+                        `cursor-pointer text-blue-800 hover:underline` : 
+                        `cursor-pointer text-green-200 hover:underline`}`}
                     details={book.details}
-                    detailsclassN={`text-gray-500 text-sm`}
+                    detailsclassN={ColorTheme === false ? `text-gray-500 text-sm` : `text-green-400 text-sm`}
                 />
 
             </div>
@@ -179,7 +193,9 @@ const RightSideBottom =() => {
 
 
         <TextProp title={`People also search for`} details={`View 10+ more`} 
-         titleclassN={`text-lg`} detailsclassN={`text-sm pt-2 text-green-700
+         titleclassN={`text-lg`} detailsclassN={ColorTheme===false ? `text-sm pt-2 text-green-700
+         cursor-pointer pl-[2rem] hover:underline` : 
+         `text-sm pt-2 text-green-400
          cursor-pointer pl-[2rem] hover:underline`} 
         tdivclassN={`flex justify-between pt-5 pb-3`}/>
         <div className="flex pb-4">
@@ -194,7 +210,9 @@ const RightSideBottom =() => {
                 />
                 <TextProp
                     title={search.title}
-                    titleclassN={`cursor-pointer text-blue-800 hover:underline`}
+                    titleclassN={`${ColorTheme === false ? 
+                        `cursor-pointer text-blue-800 hover:underline` : 
+                        `cursor-pointer text-green-200 hover:underline`}`}
                 />
 
             </div>

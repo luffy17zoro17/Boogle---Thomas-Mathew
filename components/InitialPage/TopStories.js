@@ -5,10 +5,15 @@ import ImageProp from "../props/ImageProp";
 import TextProp from "../props/TextProp";
 
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import { useSelector } from "react-redux";
+import { selectColorMode } from "../../reducers/colorMode/colorModeSlice";
 
 
 
 const TopStories = () => {
+
+    const ColorTheme = useSelector(selectColorMode); 
+
     return (
       <div className="flex justify-center
       ">
@@ -19,7 +24,9 @@ const TopStories = () => {
          <div className="lg:w-[35rem] xl:w-[50rem]"> 
           <TextProp 
              title={`About 2,12,00,00,000 results(0.49 seconds)`}
-             titleclassN={`pb-4 text-gray-500 text-sm pl-3 sm:pl-0`}
+             titleclassN={ColorTheme === false ? 
+               `pb-4 text-gray-500 text-sm pl-3 sm:pl-0` : 
+               `pb-4 text-green-400 text-sm pl-3 sm:pl-0`}
           />
           <div>
           <div className="flex flex-col">
@@ -34,7 +41,8 @@ const TopStories = () => {
          </div>
          
           <div>
-            <div className="text-blue-800 flex flex-wrap sm:justify-center">
+            <div className={`${ColorTheme===false ? `text-blue-800 flex flex-wrap sm:justify-center` :
+                           `text-purple-200 flex flex-wrap sm:justify-center`}`}>
                <div className="">
                   <div className="flex p-3 border-b border-r sm:w-[18rem]
                      md:w-[23rem] lg:w-[17rem] xl:w-[25rem]">
@@ -51,7 +59,7 @@ const TopStories = () => {
                          Will Luffy be the Pirate King?`}
                       titleclassN={`hover:underline cursor-pointer`}   
                       details={`21 hours ago`}   
-                      detailsclassN={`text-sm text-gray-500`}
+                      detailsclassN={`${ColorTheme===false ? `text-sm text-gray-500` : `text-sm text-green-300`}`}
                    />
                    </div> 
                    <ImageProp
@@ -78,8 +86,8 @@ const TopStories = () => {
                       title={`One Piece episode 1048: Release date and time, where to watch, and more`}
                       titleclassN={`hover:underline cursor-pointer`} 
                       details={`23 hours ago`}
-                      detailsclassN={`text-sm text-gray-500`}
-                   />
+                      detailsclassN={`${ColorTheme===false ? `text-sm text-gray-500` : `text-sm text-green-300`}`}
+                    />  
                    </div> 
                    <ImageProp
                      isrc={`https://w0.peakpx.com/wallpaper/936/808/HD-wallpaper-one-piece-kozuki-momonosuke-monkey-d-luffy.jpg`}
@@ -108,7 +116,7 @@ const TopStories = () => {
                       title={`JRPG One Piece Odyssey is a major letdown for One Piece fans`}
                       titleclassN={`hover:underline cursor-pointer`} 
                       details={`19 hours ago`}
-                      detailsclassN={`text-sm text-gray-500`}
+                      detailsclassN={`${ColorTheme===false ? `text-sm text-gray-500` : `text-sm text-green-300`}`}
                    />
                    </div> 
                    <ImageProp
@@ -135,7 +143,7 @@ const TopStories = () => {
                       title={`Japan’s real-world One-Piece fitness gym is open, lets you pump giant manga`}
                       titleclassN={`hover:underline cursor-pointer`} 
                       details={"1 day ago"}
-                      detailsclassN={`text-sm text-gray-500`}
+                      detailsclassN={`${ColorTheme===false ? `text-sm text-gray-500` : `text-sm text-green-300`}`}
                    />
                    </div> 
                    <ImageProp
@@ -156,7 +164,7 @@ const TopStories = () => {
           justify-center top-11">
            
            <hr className="w-full lg:w-[35rem] xl:w-[50rem]"/>
-           <div className="flex absolute rounded-full bg-green-300 px-[5vw] py-1
+           <div className="text-black flex absolute rounded-full bg-green-300 px-[5vw] py-1
             cursor-pointer hover:bg-green-400">
              More news <IconProp icon={<KeyboardDoubleArrowRightIcon/>}/>
            </div>
