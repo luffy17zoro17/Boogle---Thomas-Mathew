@@ -74,8 +74,8 @@ const Navbar = () => {
           tonClick={()=>dispatch(toggleColor(false))}
           title={"Boogle"} details={`${ColorTheme ===false ? `Switch to Dark Mode` : `Switch to Light Mode`}`}
            detailsclassN={`cursor-pointer text-sm absolute ml-[-3vw] pl-1 pt-[3rem] rounded-md
-           w-[9rem] font-light italic animate-pulse hover:animate-none hover:shadow-sm
-            hover:shadow-cyan-400`}
+           w-[9rem] font-light italic animate-pulse hover:animate-none 
+            hover:font-serif`}
 
           tdivclassN={`flex flex-col relative`} 
 
