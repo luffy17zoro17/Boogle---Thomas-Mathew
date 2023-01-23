@@ -72,7 +72,7 @@ const Navbar = () => {
            <InputProp inPlaceholder={"one piece"} inclassN={`relative 
             rounded-full py-2 pl-4 border outline-none w-[30vw] text-sm
             border-4 border-green-300 hover:border-purple-500
-             shadow hover:shadow-md sm:text-lg md:pl-5 xl:w-[37vw] xl:left-[2vw]`}/> 
+             shadow hover:shadow-md md:pl-5 lg:text-lg xl:w-[37vw] xl:left-[2vw]`}/> 
           <div className="absolute flex right-[1rem] gap-[0.8vw]
             pl-3 xl:right-[-0.5rem]"> 
            <IconProp icoclassN={`hidden md:flex cursor-pointer`} icon={<CancelIcon className=""/>}/>
